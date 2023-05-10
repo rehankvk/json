@@ -13,7 +13,7 @@ const routes = [
   { path: "/albums", component: Albums },
   { path: "/todos", component: Todos },
   { path: "/users", component: Users },
-  { path: '/:pathMatch(.*)*', redirect: '/' },
+  { path: '*', redirect: '/' },
 ];
 
 const router = createRouter({
