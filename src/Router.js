@@ -1,23 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
-import Posts from "./pages/Post.vue";
-import Comments from "./pages/Comments.vue";
-import Albums from "./pages/Albums.vue";
-import Todos from "./pages/Todos.vue";
-import Users from "./pages/Users.vue";
 
 const routes = [
-  { path: "/", component: HomePage },
-  { path: "/posts", component: Posts },
-  { path: "/comments", component: Comments },
-  { path: "/albums", component: Albums },
-  { path: "/todos", component: Todos },
-  { path: "/users", component: Users },
+  { path: "/", component: HomePage, name: "home", alias: '/home' },
+  {
+    path: "/posts",
+    component: () => import("./pages/Post.vue"),
+    name: "posts",
+  },
+  {
+    path: "/comments",
+    component: () => import("./pages/Comments.vue"),
+    name: "comments",
+  },
+  {
+    path: "/albums",
+    component: () => import("./pages/Albums.vue"),
+    name: "albums",
+  },
+  {
+    path: "/todos",
+    component: () => import("./pages/Todos.vue"),
+    name: "todos",
+  },
+  {
+    path: "/users",
+    component: () => import("./pages/Users.vue"),
+    name: "users",
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
-
 export default router;
