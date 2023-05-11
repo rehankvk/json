@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
-import NotFound from "./pages/NotFound.vue";
 
 const routes = [
   { path: "/", component: HomePage, name: "home" },
@@ -30,7 +29,10 @@ const routes = [
     component: () => import("./pages/Users.vue"),
     name: "users",
   },
-  { path: "/:pathMatch(.*)*", name: "notFound", component: NotFound },
+  {
+    path: '/:catchAll(.*)',
+    component: () => import('@/pages/NotFound.vue'),
+  },
 ];
 
 const router = createRouter({
