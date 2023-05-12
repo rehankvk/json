@@ -34,10 +34,6 @@ const routes = [
     name: "users",
     meta: { title: "Users Page },
   },
-  {
-    path: '/:catchAll(.*)',
-    component: () => import('./pages/NotFound.vue'),
-  },
 ];
 
 const router = createRouter({
